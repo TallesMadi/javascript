@@ -4,9 +4,114 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repetições</title>
+    <title>IMC</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            background-color: #bbeaff;
+        }
+       
+        header {
+            background-color: #0096D6;
+            margin: 0px auto 1px auto;
+            padding: 10px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.39);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        p {
+            margin: auto;
+            text-align: center;
+        }
+        input {
+            border-radius: 7.5px;
+            border: 1.75px solid black;
+            max-width: 100px;    
+            margin: 10px auto;   
+            padding: 7.5px;     
+        }
+
+        input#botao {
+            display: block;
+            margin: 10px auto;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #botao:hover {
+            background-color: rgb(165, 250, 39);
+            transition: .5s;
+        }
+        div {
+            display: block;
+            text-align: center;
+            margin: auto;
+            max-width: fit-content;
+            padding: 10px;
+        }
+
+        main {
+            margin: 0px auto;
+            background-color: white;
+            max-width: 1000px;
+            padding: 20px;
+            max-height: ;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <h1>Calculadora de IMC</h1>
+    </header>
+    <main>
+        <p>Calculadora</p>
+        <p>Peso:  <input type="number" name="nummassa" id="nummassa"> Quilogramas</p>
+        <p>Altura:  <input type="number" name="numalt" id="numalt"> Metros (Ex: 1.65)</p>
+        <input type="button" value="Resultado" id="botao" onclick="calculo()">
+        <div id="res"></div>
+    </main>
+    <script>
+        function calculo() {
+            var massa = window.document.querySelector('input#nummassa')
+            var alt = window.document.querySelector('input#numalt')
+            var res = window.document.querySelector('div#res')
+            var nmassa = Number(massa.value)
+            var nalt = Number(alt.value)
+            var ini = nalt * nalt
+            var fim = nmassa / ini
+            res.style.border = '1px solid black'
+            res.innerHTML = fim
+            if (fim <= 0) {
+                res.innerHTML = `Valores como ${nmassa.toFixed(2)} e ${nalt.toFixed(2)} podem estar errados!`
+            }
+            else if (1 <= fim && fim < 18.5) {
+                res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Abaixo do peso ideal`
+            }
+            else if (18.5 <= fim && fim < 24.9) {
+                res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Peso normal`
+            }
+            else if (24.9 <= fim && fim <= 29.9) {
+                res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Sobrepeso`
+            }
+            else if (30 <= fim && fim <= 34.9) {
+                res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau I`
+            }
+            else if (35 <= fim && fim <= 39.9) {
+                res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau II`
+            }
+            else if (fim >= 40) {
+                res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau III / Obesidade mórbida`
+            }
+            else {
+                res.innerHTML = 'ERRO!'
+            }
+        }
+    </script>
 </body>
 </html>
