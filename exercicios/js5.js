@@ -4,8 +4,14 @@ while (c <= 6) {
     c++ 
 }
 
-var b = 1
+var b = 7
 do {
     console.log(`Passo ${b}!`)
     b++
-}  while (b <= 6)
+}  while (b <= 12)
+
+for (var a = 13; a <= 18; a++) {
+    console.log(`Passo ${a}!`)
+}
+
+/*Três formas de fazer o mesmo código */
