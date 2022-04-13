@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem/favicon.ico" type="image/x-icon">
     <title>IMC</title>
     <style>
         body {
@@ -23,37 +24,63 @@
         h1 {
             text-align: center;
             color: white;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.089);
+        }
+
+        h2 {
+            color: #0096D6;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.089);
         }
 
         p {
             margin: auto;
-            text-align: center;
+            text-align: left;
         }
         input {
             border-radius: 7.5px;
             border: 1.75px solid black;
             max-width: 100px;    
-            margin: 10px auto;   
-            padding: 7.5px;     
+            margin: 10px 10px 10px 0px;   
+            padding: 7.5px;   
         }
 
         input#botao {
             display: block;
-            margin: 10px auto;
+            margin: 30px auto;
             text-align: center;
             font-weight: bold;
+            background-color: #0096D6;
+            color: white;
         }
 
         #botao:hover {
             background-color: rgb(165, 250, 39);
             transition: .5s;
         }
+
         div {
+            margin: auto;
+            padding: 5px;
+            max-width: 600px;
+
+        }
+
+        div#res {
             display: block;
             text-align: center;
-            margin: auto;
+            margin: 20px auto;
             max-width: fit-content;
             padding: 10px;
+        }
+
+        div#acoes {
+            display: inline-block;
+            width: fit-content;
+        }
+
+        div#acoes  p {
+            border-bottom: 1px solid black;
         }
 
         main {
@@ -61,7 +88,55 @@
             background-color: white;
             max-width: 1000px;
             padding: 20px;
-            max-height: ;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.301);
+        }
+
+        table {
+            display: block;
+            max-width: 400px;
+            margin: 40px auto;
+            border: 1px solid black;
+            border-collapse: collapse;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.329);
+        }
+
+        th {
+            background-color: #0096D6;
+            color: white;
+        }
+
+        th, td { 
+            padding: 7.5px;
+            border: 1px solid black;
+        }
+
+        td {
+            color: #0096D6;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: azure;
+        }
+
+        footer {
+            background-color: #0096D6;
+            margin: 0px auto;
+            padding: 15px;
+        }
+
+        footer p {
+            text-align: center;
+            color: white;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -70,20 +145,77 @@
         <h1>Calculadora de IMC</h1>
     </header>
     <main>
-        <p>Calculadora</p>
-        <p>Peso:  <input type="number" name="nummassa" id="nummassa"> Quilogramas</p>
-        <p>Altura:  <input type="number" name="numalt" id="numalt"> Metros (Ex: 1.65)</p>
-        <input type="button" value="Resultado" id="botao" onclick="calculo()">
-        <div id="res"></div>
+        <div>
+            <h2>Calculadora</h2>
+            <div id="acoes">
+                <p>Peso:  <input type="number" name="nummassa" id="nummassa"> Quilogramas</p>
+                <p>Altura:  <input type="number" name="numalt" id="numalt"> Centímetros</p>
+            </div>
+            <input type="button" value="Resultado" id="botao" onclick="calculo()">
+            <div id="res"></div>
+            <table>
+                <thead> 
+                    <tr> 
+                        <th>Classificação</th> 
+                        <th>IMC</th> 
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <tr class="t1"> 
+                        <td class="d1">Abaixo do Peso</td> 
+                        <td class="d2">Abaixo de 18,5</td> 
+                    </tr> 
+                    <tr class="t2"> 
+                        <td class="d3">Peso Normal</td> 
+                        <td class="d4">18,5 - 24,9</td> 
+                    </tr> 
+                    <tr class="t3"> 
+                        <td class="d5">Sobrepeso</td> 
+                        <td class="d6">24,9 - 29,9</td> 
+                    </tr> 
+                    <tr class="t4"> 
+                        <td class="d7">Obesidade Grau I</td> 
+                        <td class="d8">30 - 34,9</td> 
+                    </tr> 
+                    <tr class="t5"> 
+                        <td class="d9">Obesidade Grau II</td> 
+                        <td class="d10">35 - 39,9</td> 
+                    </tr> 
+                    <tr class="t6"> 
+                        <td class="d11">Obesidade Grau III ou Mórbida</td>
+                        <td class="d12">Maior ou igual a 40</td> 
+                    </tr> 
+                </tbody> 
+            </table>
+        </div>
     </main>
+    <footer><p>Site desenvolvido por <a href="https://github.com/TallesMadi">Talles Madi</a></p></footer>
     <script>
         function calculo() {
             var massa = window.document.querySelector('input#nummassa')
             var alt = window.document.querySelector('input#numalt')
             var res = window.document.querySelector('div#res')
+            var t1 = window.document.querySelector('tr.t1')
+            var t2 = window.document.querySelector('tr.t2')
+            var t3 = window.document.querySelector('tr.t3')
+            var t4 = window.document.querySelector('tr.t4')
+            var t5 = window.document.querySelector('tr.t5')
+            var t6 = window.document.querySelector('tr.t6')
+            var d1 = window.document.querySelector('td.d1')
+            var d2 = window.document.querySelector('td.d2')
+            var d3 = window.document.querySelector('td.d3')
+            var d4 = window.document.querySelector('td.d4')
+            var d5 = window.document.querySelector('td.d5')
+            var d6 = window.document.querySelector('td.d6')
+            var d7 = window.document.querySelector('td.d7')
+            var d8 = window.document.querySelector('td.d8')
+            var d9 = window.document.querySelector('td.d9')
+            var d10 = window.document.querySelector('td.d10')
+            var d11 = window.document.querySelector('td.d11')
+            var d12 = window.document.querySelector('td.d12')
             var nmassa = Number(massa.value)
             var nalt = Number(alt.value)
-            var ini = nalt * nalt
+            var ini = (nalt / 100) * (nalt / 100)
             var fim = nmassa / ini
             res.style.border = '1px solid black'
             res.innerHTML = fim
@@ -92,24 +224,134 @@
             }
             else if (1 <= fim && fim < 18.5) {
                 res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Abaixo do peso ideal`
+                //t1.style.backgroundColor = 'red'
+                t1.style.backgroundColor = 'lightblue'
+                t2.style.backgroundColor = 'azure'
+                t3.style.backgroundColor = 'white'
+                t4.style.backgroundColor = 'azure'
+                t5.style.backgroundColor = 'white'
+                t6.style.backgroundColor = 'azure'
+                d1.style.color = 'white'
+                d2.style.color = 'white'
+                d3.style.color = '#0096D6'
+                d4.style.color = '#0096D6'
+                d5.style.color = '#0096D6'
+                d6.style.color = '#0096D6'
+                d7.style.color = '#0096D6'
+                d8.style.color = '#0096D6'
+                d9.style.color = '#0096D6'
+                d10.style.color = '#0096D6'
+                d11.style.color = '#0096D6'
+                d12.style.color = '#0096D6'
             }
             else if (18.5 <= fim && fim < 24.9) {
                 res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Peso normal`
+                t2.style.backgroundColor = '#36E001'
+                t1.style.backgroundColor = 'white'
+                t3.style.backgroundColor = 'white'
+                t4.style.backgroundColor = 'azure'
+                t5.style.backgroundColor = 'white'
+                t6.style.backgroundColor = 'azure'
+                d3.style.color = 'white'
+                d4.style.color = 'white'
+                d1.style.color = '#0096D6'
+                d2.style.color = '#0096D6'
+                d5.style.color = '#0096D6'
+                d6.style.color = '#0096D6'
+                d7.style.color = '#0096D6'
+                d8.style.color = '#0096D6'
+                d9.style.color = '#0096D6'
+                d10.style.color = '#0096D6'
+                d11.style.color = '#0096D6'
+                d12.style.color = '#0096D6'
             }
             else if (24.9 <= fim && fim <= 29.9) {
                 res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Sobrepeso`
+                t3.style.backgroundColor = '#FFF001'
+                t1.style.backgroundColor = 'white'
+                t2.style.backgroundColor = 'azure'
+                t4.style.backgroundColor = 'azure'
+                t5.style.backgroundColor = 'white'
+                t6.style.backgroundColor = 'azure'
+                d5.style.color = 'white'
+                d6.style.color = 'white'
+                d1.style.color = '#0096D6'
+                d2.style.color = '#0096D6'
+                d3.style.color = '#0096D6'
+                d4.style.color = '#0096D6'
+                d7.style.color = '#0096D6'
+                d8.style.color = '#0096D6'
+                d9.style.color = '#0096D6'
+                d10.style.color = '#0096D6'
+                d11.style.color = '#0096D6'
+                d12.style.color = '#0096D6'
             }
             else if (30 <= fim && fim <= 34.9) {
                 res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau I`
+                t4.style.backgroundColor = '#FFB900'
+                t1.style.backgroundColor = 'white'
+                t2.style.backgroundColor = 'azure'
+                t3.style.backgroundColor = 'white'
+                t5.style.backgroundColor = 'white'
+                t6.style.backgroundColor = 'azure'
+                d7.style.color = 'white'
+                d8.style.color = 'white'
+                d1.style.color = '#0096D6'
+                d2.style.color = '#0096D6'
+                d3.style.color = '#0096D6'
+                d4.style.color = '#0096D6'
+                d5.style.color = '#0096D6'
+                d6.style.color = '#0096D6'
+                d9.style.color = '#0096D6'
+                d10.style.color = '#0096D6'
+                d11.style.color = '#0096D6'
+                d12.style.color = '#0096D6'
             }
             else if (35 <= fim && fim <= 39.9) {
                 res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau II`
+                t5.style.backgroundColor = '#FF5C01'
+                t1.style.backgroundColor = 'white'
+                t2.style.backgroundColor = 'azure'
+                t3.style.backgroundColor = 'white'
+                t4.style.backgroundColor = 'azure'
+                t6.style.backgroundColor = 'azure'
+                d9.style.color = 'white'
+                d10.style.color = 'white'
+                d1.style.color = '#0096D6'
+                d2.style.color = '#0096D6'
+                d3.style.color = '#0096D6'
+                d4.style.color = '#0096D6'
+                d5.style.color = '#0096D6'
+                d6.style.color = '#0096D6'
+                d7.style.color = '#0096D6'
+                d8.style.color = '#0096D6'
+                d11.style.color = '#0096D6'
+                d12.style.color = '#0096D6'
             }
             else if (fim >= 40) {
                 res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau III / Obesidade mórbida`
+                t6.style.backgroundColor = '#F10507'
+                t1.style.backgroundColor = 'white'
+                t2.style.backgroundColor = 'azure'
+                t3.style.backgroundColor = 'white'
+                t4.style.backgroundColor = 'azure'
+                t5.style.backgroundColor = 'white'
+                d11.style.color = 'white'
+                d12.style.color = 'white'
+                d1.style.color = '#0096D6'
+                d2.style.color = '#0096D6'
+                d3.style.color = '#0096D6'
+                d4.style.color = '#0096D6'
+                d5.style.color = '#0096D6'
+                d6.style.color = '#0096D6'
+                d7.style.color = '#0096D6'
+                d8.style.color = '#0096D6'
+                d9.style.color = '#0096D6'
+                d10.style.color = '#0096D6'
             }
             else {
-                res.innerHTML = 'ERRO!'
+                res.innerHTML = 'ERRO! <br> Algum valor acima está incorreto/ausente'
+                res.style.color = 'red'
             }
         }
     </script>
