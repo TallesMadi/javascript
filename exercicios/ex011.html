@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem/favicon3.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style2.css">
     <title>Idade</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Verificador de Idade</h1>
+    </header>
+    <main>
+        <p> &#10141; Ano de Nascimento:
+            <input type="number" name="txtnum" id="txtnum">
+        </p>
+        <p>Sexo: <input type="radio" name="radsex" id="masc" checked>
+        <label for="masc">Masculino</label>
+        <input type="radio" name="radsex" id="fem">
+        <label for="fem">Feminino</label> </p>
+        
+        <input type="button" value="Resultado" onclick="clicar()" id="botao">
+        
+        <div id="res"></div>
+        <div id="foto"></div>
+    </main>
+    <footer>
+        <p>&#169; <a href="https://github.com/TallesMadi">Talles Madi</a></p>
+    </footer>
+    <script src="js/js10.js" defer></script>
 </body>
 </html>
