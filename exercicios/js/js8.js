@@ -27,7 +27,26 @@ function calculo() {
     res.style.border = '1px solid black'
     res.innerHTML = fim
     if (fim <= 0) {
-        res.innerHTML = `Valores como ${nmassa.toFixed(2)} e ${nalt.toFixed(2)} podem estar errados!`
+        res.innerHTML = `Valores como ${nmassa.toFixed(2)} e ${nalt.toFixed(2)} podem estar errados! <br> <strong style='font-size: 4em'>&#9888;</strong>`
+        res.style.color = 'red'
+        t6.style.backgroundColor = 'azure'
+        t1.style.backgroundColor = 'white'
+        t2.style.backgroundColor = 'azure'
+        t3.style.backgroundColor = 'white'
+        t4.style.backgroundColor = 'azure'
+        t5.style.backgroundColor = 'white'
+        d11.style.color = '#0096D6'
+        d12.style.color = '#0096D6'
+        d1.style.color = '#0096D6'
+        d2.style.color = '#0096D6'
+        d3.style.color = '#0096D6'
+        d4.style.color = '#0096D6'
+        d5.style.color = '#0096D6'
+        d6.style.color = '#0096D6'
+        d7.style.color = '#0096D6'
+        d8.style.color = '#0096D6'
+        d9.style.color = '#0096D6'
+        d10.style.color = '#0096D6'
     }
     else if (1 <= fim && fim < 18.5) {
         res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Abaixo do peso ideal`
@@ -50,6 +69,7 @@ function calculo() {
         d10.style.color = '#0096D6'
         d11.style.color = '#0096D6'
         d12.style.color = '#0096D6'
+        res.style.color = 'black'
     }
     else if (18.5 <= fim && fim < 24.9) {
         res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Peso normal`
@@ -71,6 +91,7 @@ function calculo() {
         d10.style.color = '#0096D6'
         d11.style.color = '#0096D6'
         d12.style.color = '#0096D6'
+        res.style.color = 'black'
     }
     else if (24.9 <= fim && fim <= 29.9) {
         res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Sobrepeso`
@@ -92,6 +113,7 @@ function calculo() {
         d10.style.color = '#0096D6'
         d11.style.color = '#0096D6'
         d12.style.color = '#0096D6'
+        res.style.color = 'black'
     }
     else if (30 <= fim && fim <= 34.9) {
         res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau I`
@@ -113,6 +135,7 @@ function calculo() {
         d10.style.color = '#0096D6'
         d11.style.color = '#0096D6'
         d12.style.color = '#0096D6'
+        res.style.color = 'black'
     }
     else if (35 <= fim && fim <= 39.9) {
         res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau II`
@@ -134,8 +157,9 @@ function calculo() {
         d8.style.color = '#0096D6'
         d11.style.color = '#0096D6'
         d12.style.color = '#0096D6'
+        res.style.color = 'black'
     }
-    else if (fim >= 40) {
+    else if (fim >= 40 && fim <= 100) {
         res.innerHTML = `IMC = ${fim.toFixed(2)} <br> Obesidade grau III / Obesidade mórbida`
         t6.style.backgroundColor = '#F10507'
         t1.style.backgroundColor = 'white'
@@ -155,9 +179,50 @@ function calculo() {
         d8.style.color = '#0096D6'
         d9.style.color = '#0096D6'
         d10.style.color = '#0096D6'
+        res.style.color = 'black'
+    }
+    else if (fim > 100) {
+        res.innerHTML = `Valores como ${nmassa.toFixed(2)} e ${nalt.toFixed(2)} podem estar errados! <br> <strong style='font-size: 4em'>&#9888;</strong>`
+        res.style.color = 'red'
+        t6.style.backgroundColor = 'azure'
+        t1.style.backgroundColor = 'white'
+        t2.style.backgroundColor = 'azure'
+        t3.style.backgroundColor = 'white'
+        t4.style.backgroundColor = 'azure'
+        t5.style.backgroundColor = 'white'
+        d11.style.color = '#0096D6'
+        d12.style.color = '#0096D6'
+        d1.style.color = '#0096D6'
+        d2.style.color = '#0096D6'
+        d3.style.color = '#0096D6'
+        d4.style.color = '#0096D6'
+        d5.style.color = '#0096D6'
+        d6.style.color = '#0096D6'
+        d7.style.color = '#0096D6'
+        d8.style.color = '#0096D6'
+        d9.style.color = '#0096D6'
+        d10.style.color = '#0096D6'
     }
     else {
-        res.innerHTML = 'ERRO! <br> Algum valor acima está incorreto/ausente'
+        res.innerHTML = `ERRO! <br> Algum valor acima está incorreto/ausente <br> <strong style='font-size: 4em'>&#9888;</strong>`
         res.style.color = 'red'
+        t6.style.backgroundColor = 'azure'
+        t1.style.backgroundColor = 'white'
+        t2.style.backgroundColor = 'azure'
+        t3.style.backgroundColor = 'white'
+        t4.style.backgroundColor = 'azure'
+        t5.style.backgroundColor = 'white'
+        d11.style.color = '#0096D6'
+        d12.style.color = '#0096D6'
+        d1.style.color = '#0096D6'
+        d2.style.color = '#0096D6'
+        d3.style.color = '#0096D6'
+        d4.style.color = '#0096D6'
+        d5.style.color = '#0096D6'
+        d6.style.color = '#0096D6'
+        d7.style.color = '#0096D6'
+        d8.style.color = '#0096D6'
+        d9.style.color = '#0096D6'
+        d10.style.color = '#0096D6'
     }
 }
