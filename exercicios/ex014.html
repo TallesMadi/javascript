@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Números</title>
+    <style>
+        body {
+        background-color: #0F75E4;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        padding: 0px;
+        margin: 0px;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);;
+        }
+
+        main {
+            max-width: 600px;
+            margin: auto;
+            padding: 15px;
+            background-color: white;
+            color: black;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        input#botao {
+            display: block;
+            margin: auto;
+            text-align: center;
+            background-color: #0F75E4;
+            color: white;
+        }
+
+        #botao:hover {
+            background-color: #4c9df3;
+            text-decoration: underline;
+            transition: .5s;
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        div {
+            text-align: center;
+            margin: 10px auto;
+            padding: 10px;
+        }
+
+        select {
+            width: 200px;
+            padding: 3px;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
+    <main>
+        <p>Número (entre 1 e 100): <input type="number" name="txtn1" id="txtn1"></p>
+        <input type="button" value="Adicionar" onclick="adicionar()" id="botao">
+        <div id="res">
+            <select name="Analise" id="resultado" size="10"></select>
+        </div>
+        <input type="button" value="Resultado" onclick="resultado()" id="botao">
+    </main>
+</body>
+</html>

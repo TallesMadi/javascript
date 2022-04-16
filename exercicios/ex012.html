@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem/favicon4.ico" type="image/x-icon">
+    <title>Contagem</title>
+    <style>
+        body {
+        background-color: #0F75E4;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        padding: 0px;
+        margin: 0px;
+        }
+
+        h1 {
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);;
+        }
+
+        main {
+            max-width: 600px;
+            margin: auto;
+            padding: 15px;
+            background-color: white;
+            color: black;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        input#botao {
+            display: block;
+            margin: auto;
+            text-align: center;
+            background-color: #0F75E4;
+            color: white;
+        }
+
+        #botao:hover {
+            background-color: #4c9df3;
+            text-decoration: underline;
+            transition: .5s;
+        }
+
+        footer p {
+            text-align: center;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        div {
+            text-align: center;
+            margin: 10px auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vamos Contar</h1>
+    </header>
+    <main>
+        <p>Início: <input type="number" name="txtn1" id="txtn1"></p> 
+        <p>Final: <input type="number" name="txtn2" id="txtn2"></p>
+        <p>Passo: <input type="number" name="txtpas" id="txtpas"></p>
+        <input type="button" value="Resultado" onclick="resultado()" id="botao">
+        <div id="res">Preparando a Contagem...</div>
+    </main>
+    <footer>
+        <p>&#169; <a href="https://github.com/TallesMadi">Talles Madi</a></p>
+    </footer>
+    <script>
+        function resultado() {
+            var ini = window.document.querySelector('input#txtn1')
+            var f = window.document.querySelector('input#txtn2')
+            var p = window.document.querySelector('input#txtpas')
+            var inicio = Number(ini.value)
+            var fim = Number(f.value)
+            var passo = Number(p.value)
+            var res = window.document.querySelector('div#res')
+            res.innerHTML = ''
+            if (passo >= fim || (passo < 0 && fim > 0 && fim > inicio)) {
+                res.innerHTML = 'Progressão impossível!'
+            }
+            else if (inicio <= fim && passo > 0) {
+            while (inicio <= fim) {
+                res.innerHTML += `${inicio} &#10141; `
+                inicio += passo
+            }
+            res.innerHTML += 'FIM!'
+            }
+            else if (inicio >= fim && passo < 0) {
+            while (inicio >= fim) {
+                res.innerHTML += `${inicio} &#10141; `
+                inicio += passo
+            }
+            res.innerHTML += 'FIM!'                
+            }
+        }
+    </script>
+</body>
+</html>
