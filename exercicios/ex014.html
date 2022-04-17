@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagem/favicon5.ico" type="image/x-icon">
     <title>Analisador de Números</title>
     <style>
         body {
@@ -79,12 +80,85 @@
         <h1>Analisador de Números</h1>
     </header>
     <main>
-        <p>Número (entre 1 e 100): <input type="number" name="txtn1" id="txtn1"></p>
+        <p>Número (entre 1 e 100): <input type="number" name="num" id="num"></p>
         <input type="button" value="Adicionar" onclick="adicionar()" id="botao">
-        <div id="res">
-            <select name="Analise" id="resultado" size="10"></select>
+        <div>
+            <select name="Analise" id="lista" size="10"></select>
         </div>
         <input type="button" value="Resultado" onclick="resultado()" id="botao">
+        <div id="res">
+
+        </div>
     </main>
+    <footer>
+        <p>&#169; <a href="https://github.com/TallesMadi">Talles Madi</a></p>
+    </footer>
+    <script>
+        let valores = []
+        let num = window.document.querySelector('input#num')
+        let lista = window.document.querySelector('select#lista')
+        let res = window.document.querySelector('div#res')
+        var n1 = 0
+        function isNumero(n) {
+            if (Number(n) >= 1 && Number(n) <= 100) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+
+        function inLista(n, l) {
+            if (l.indexOf(Number(n)) != -1) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        function adicionar() {    
+        if (isNumero(num.value) && !inLista(num.value, valores)) {
+        valores.push(Number(num.value))
+
+        let item = window.document.createElement('option')
+        item.text = `Valor ${num.value} adicionado`
+        lista.appendChild(item)
+        res.innerHTML = ''
+        n1 += 1
+        }
+        else {
+            window.alert('Valor inválido ou já presente na lista!')
+        }
+        num.value = ''
+        num.focus()
+        
+        let maior = valores[0]
+        let menor = valores[0]
+        
+        }
+        function resultado() {
+            if (valores.length == 0) {
+                window.alert(`Lista Vazia!`)
+            }
+            else {
+                var soma = 0
+                lista.innerHTML = ''
+                res.innerHTML = ''
+                res.innerHTML += `${valores}`
+                for (var a = 0; a <= n1 - 1; a += 1) {
+                    soma += valores[a]
+                }
+                res.innerHTML += `<p>${n1} números foram registrados!</p>`
+                res.innerHTML += `<p> O menor valor é ${Math.min.apply(Math, valores)} e o maior valor é ${Math.max.apply(Math, valores)} </p>`
+                res.innerHTML += `<p> A soma dos números da ${soma}</p>`
+                var media = soma / n1
+                res.innerHTML += `<p> A média dos valores é de aproximadamente ${Math.round(media)}</p>`
+
+                n1 = 0
+                valores = []
+            }    
+        }
+
+    </script>
 </body>
 </html>
