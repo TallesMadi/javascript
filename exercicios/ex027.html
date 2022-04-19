@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 13</title>
+    <style>
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 5px;
+            border: 1px solid black;
+        }
+        div {
+            margin: 5px auto 10px auto;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do Aluno</h1>
+    <input type="button" value="Conferir notas" onclick="clicar()">
+    <div>
+
+    </div> 
+           <table>
+            <tr>
+                <th>Média</th>
+                <th>Situação</th>
+            </tr>
+            <tr>
+                <td class="reprovado">Abaixo de 3,0</td>
+                <td class="reprovado">REPROVADO</td>
+            </tr>
+            <tr>
+                <td class="recu">Entre 3,0 e 6,0</td>
+                <td class="recu">RECUPERAÇÂO</td>
+            </tr>
+            <tr>
+                <td class="aprovado">Acima de 6,0</td>
+                <td class="aprovado">APROVADO</td>
+            </tr>
+        </table>
+    <script>
+        function clicar() {
+            var res = window.document.querySelector('div')
+            var td3 = window.document.querySelector('td.aprovado')
+            var nome = window.prompt('Qual o nome do aluno?')
+            var n1 = Number.parseFloat(window.prompt(`Quanto ${nome} tirou na primeira prova? `))
+            var n2 = Number.parseFloat(window.prompt('E quanto tirou na segunda? '))
+            var media = (n1 + n2) / 2
+            if (media <= 3) {
+                res.innerHTML += `A média de ${nome} foi de ${media}, deixando o aluno reprovado!`
+            }
+            else if (media > 3 && media < 6){
+                res.innerHTML += `A média de ${nome} foi de ${media}, deixando o aluno de recuperação!`
+            }
+            else if (media >= 6 && media <= 10) {
+                res.innerHTML += `A média de ${nome} foi de ${media}, deixando o aluno aprovado!`
+            }
+            else {
+                res.innerHTML += 'Algum dado foi inserido incorretamente'
+            }
+        }
+    </script>
+</body>
+</html>

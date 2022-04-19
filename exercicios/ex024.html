@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 10</title>
+</head>
+<body>
+    <h1>Bhaskara</h1>
+    <input type="button" value="Calcular" onclick="clicar()">
+    <div></div>
+    <script>
+        function clicar() {
+            var a = Number.parseFloat(window.prompt('Qual o valor de a?'))
+            var b = Number.parseFloat(window.prompt('Qual o valor de b?'))
+            var c = Number.parseFloat(window.prompt('Qual o valor de c?'))
+            var res = window.document.querySelector('div')
+            res.innerHTML = ''
+            var delta = (b ** 2) - (4 * a * c)
+            res.innerHTML = `<h2>Resolvendo Bhaskara</h2>
+    <p>A equação é ${a}x² + ${b}x + ${c} = 0</p>
+    <p>O Delta equivale a &#9651; = ${b}² - 4.${a}.${c}</p>
+    <p>&#9651; = ${delta}</p>`
+            if (delta > 0) {
+                var x1 = -b + (delta ** 1 / 2) / (2 * a)
+                var x2 = -b - (delta ** 1 / 2) / (2 * a)
+                res.innerHTML += `Existe duas soluções, sendo aproximadamente ${Math.round(x1)} e ${Math.round(x2)}`
+            }
+            else if (delta = 0) {
+                var x3 = - b / 2 * a
+                res.innerHTML += `Existe apenas uma solução, sendo ela ${Math.round(x3)}`
+            }
+            else {
+                res.innerHTML += 'Não há solução quando o delta é negativo'
+            }
+    }
+    </script>
+</body>
+</html>

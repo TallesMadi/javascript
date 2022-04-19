@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 12</title>
+</head>
+<body>
+    <h1>Preço Mudou</h1>
+    <input type="button" value="Verificar" onclick="clicar()">
+    <div></div>
+    
+    <script>
+        function clicar() {
+            var antes = Number.parseFloat(window.prompt('Quanto o produto custava anteriormente? '))
+            var depois = Number.parseFloat(window
+            .prompt('Quanto ele custa agora? '))
+            var res = window.document.querySelector('div')
+            if (antes > depois) {
+                res.innerHTML = `<h2>Analisando os valores informados</h2>
+    <p>O produto custava R$${antes} e agora custa R$${depois}.</p>
+    <p>Hoje o produto está mais barato.</p>
+    <p>O preço diminuiu R$${antes - depois} em relação ao preço anterior.</p>
+    <p>Uma variação de ${antes - depois * (100 / antes)}%</p>`
+            }
+            else if (antes < depois) {
+                res.innerHTML = `<h2>Analisando os valores informados</h2>
+    <p>O produto custava R$${antes} e agora custa R$${depois}.</p>
+    <p>Hoje o produto está mais caro.</p>
+    <p>O preço subiu R$${depois - antes} em relação ao preço anterior.</p>
+    <p>Uma variação de ${depois - antes * (100 / depois)}%</p>`
+            }
+        }
+    </script>
+</body>
+</html>
