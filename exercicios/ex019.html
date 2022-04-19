@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5</title>
+</head>
+<body>
+    <h1>Conversor de Medidas</h1>
+    <input type="button" value="Converter" onclick="clicar()">
+    <div></div>
+    <script>
+        function clicar() {
+            var metros = Number.parseInt(window.prompt('Digite uma distância em Metros: '))
+            var res = window.document.querySelector('div')
+            res.innerHTML = `<h2>A distância de ${metros}, corresponde a...</h2>
+            <p>${metros * 0.001} Quiômetros (Km)</p>
+            <p>${metros * 0.01} Hectômetros (Hm)</p>
+            <p>${metros * 0.1} Decâmetros (Dam)</p>
+            <p>${metros * 10} Decimetros (dm)</p>
+            <p>${metros * 100} Centimetros (cm)</p>
+            <p>${metros * 1000} Milímetros (mm)</p>`
+        }
+    </script>
+</body>
+</html>

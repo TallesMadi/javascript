@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 4</title>
+</head>
+<body>
+    <h1>Calculando o Troco</h1>
+    <input type="button" value="Comprando Produto" onclick="clicar()">
+    <script>
+        function clicar() {
+            var produto = window.prompt('Qual produto você está comprando?')
+            var preco = Number.parseInt(window.prompt(`Quanto custa ${produto} que você está comprando?`))
+            var total = Number.parseInt(window.prompt('Quanto você deu para pagar?'))
+            window.alert(`Você comprou ${produto} por R$${preco}. Deu R$${total} em dinheiro e recebu R$${total-preco} de troco. Volte sempre!`)
+        }
+    </script>
+</body>
+</html>
